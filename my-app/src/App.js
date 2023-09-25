@@ -4,15 +4,21 @@ import './App.scss';
 function App() {
   return (
     <div>
-      <img className='app-logo' src={logo} alt="My App logo"></img>
-      <h1>Fun Facts about React</h1>
-      <ul>
-        <li>Was first released in 2013</li>
-        <li>Was originally created by Jordan Walke</li>
-        <li>Has well over 100k stars on Github</li>
-        <li>Is maintained by Facebook</li>
-        <li>Powers thousands of enterprise apps, including mobile apps</li>
-      </ul>
+      <header>
+        <nav>
+          <img className='app-logo' src={logo} alt="My App logo"></img>
+        </nav>
+      </header>
+      <h1>Reasons I'm excited to learn React</h1>
+      <ol>
+        <li>It's a popular library, so I'll be
+          able to fit in with the cool kids!</li>
+        <li>I'm more likely to get a job as a developer
+          if I know React.</li>
+      </ol>
+      <footer>
+        <p>© 2023 Luy Vannda development. All rights reserved.</p>
+      </footer>
     </div>
   )
 }

@@ -2,9 +2,12 @@ import logo from './logo.svg';
 import './App.scss';
 
 /**
-Mini Challenge:
-Move the `header` element from App into 
-its own component called "Header"
+Challenge: 
+
+- Move the `footer` into its own component called "Footer" 
+  and render that component inside the Page component.
+- Move the `h1` and `ol` together into another component
+  called "MainContent" and render inside Page as well.
 */
 
 export function Header() {
@@ -17,10 +20,9 @@ export function Header() {
   )
 }
 
-export default function App() {
+export function MainContent() {
   return (
     <div>
-      <Header />
       <h1>Reasons I'm excited to learn React</h1>
       <ol>
         <li>It's a popular library, so I'll be
@@ -28,9 +30,24 @@ export default function App() {
         <li>I'm more likely to get a job as a developer
           if I know React.</li>
       </ol>
-      <footer>
-        <p>© 2023 Luy Vannda development. All rights reserved.</p>
-      </footer>
+    </div>
+  )
+}
+
+export function Footer() {
+  return (
+    <footer>
+      <p>© 2023 Luy Vannda development. All rights reserved.</p>
+    </footer>
+  )
+}
+
+export default function App() {
+  return (
+    <div>
+      <Header />
+      <MainContent />
+      <Footer />
     </div>
   )
 }

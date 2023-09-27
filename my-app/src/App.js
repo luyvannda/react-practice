@@ -1,14 +1,26 @@
 import logo from './logo.svg';
 import './App.scss';
 
-function App() {
+/**
+Mini Challenge:
+Move the `header` element from App into 
+its own component called "Header"
+*/
+
+export function Header() {
+  return (
+    <header>
+      <nav>
+        <img className='app-logo' src={logo} alt="My App logo"></img>
+      </nav>
+    </header>
+  )
+}
+
+export default function App() {
   return (
     <div>
-      <header>
-        <nav>
-          <img className='app-logo' src={logo} alt="My App logo"></img>
-        </nav>
-      </header>
+      <Header />
       <h1>Reasons I'm excited to learn React</h1>
       <ol>
         <li>It's a popular library, so I'll be
@@ -23,22 +35,8 @@ function App() {
   )
 }
 
-export default App;
 
 
-/**
-Challenge: 
-
-Part 2: 
-- Add a `header` element with a nested `nav` element. Inside the `nav`,
-  include a `img` element with the image of the React logo inside
-  (src="./react-logo.png") and make sure to set the width to something
-  more manageable so it doesn't take up the whole screen
-- Add an `h1` with some text describing the page. (E.g. "Reasons
-  I'm excited to learn React"). Place it above the ordered list.
-- Add a `footer` after the list that says: 
-    "© 20xx <last name here> development. All rights reserved."
- */
 
 
 

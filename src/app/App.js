@@ -1,27 +1,20 @@
 import './App.scss';
+import Contact from "./components/Contact.js"
 
+/* Challenge:
+
+- Create a Contact.js component in another file
+- Move one of the contact card divs below into that file
+- import and render 4 instances of that contact card
+    - Think ahead: what's the problem with doing it this way?
+*/
 
 export default function App() {
 
-  const date = new Date()
-  const hours = date.getHours()
-  let timeOfDay
-
-  if (hours < 12) {
-    timeOfDay = "morning"
-  } else if (hours >= 12 && hours < 17) {
-    timeOfDay = "afternoon"
-  } else {
-    timeOfDay = "night"
-  }
-
-  /**
-   * Challenge: fix the h1 below to use the timeOfDay
-   * string we determined in the code above
-   */
-
   return (
-    <h1>Good {timeOfDay}!</h1>
+    <div>
+      <Contact />
+    </div>
   )
 
 

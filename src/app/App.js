@@ -1,5 +1,5 @@
 import './App.scss';
-import Contact from "./components/Contact.js"
+import Card from "./components/Card.js"
 
 /* Challenge:
 
@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <div>
-      <Contact />
+      <Card />
     </div>
   )
 

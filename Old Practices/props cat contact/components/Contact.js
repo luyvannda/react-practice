@@ -1,4 +1,3 @@
-import whiskerson from "./images/mr-whiskerson.png"
 import phone from "./images/phone-icon.png"
 import email from "./images/mail-icon.png"
 

@@ -15,4 +15,18 @@ html {
 
 body {
   font-family: "Karla", sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 5rem auto 0 2rem;
+}
+
+.joke p {
+  font-weight: 600;
+}
+.joke p span {
+  font-weight: 400;
 }/*# sourceMappingURL=App.css.map */

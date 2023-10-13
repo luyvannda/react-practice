@@ -24,11 +24,9 @@ body {
   margin: 5rem auto 0 2rem;
 }
 
-.joke .setup,
-.joke .punchline {
+.joke p {
   font-weight: 600;
 }
-.joke .setup span,
-.joke .punchline span {
+.joke p span {
   font-weight: 400;
 }/*# sourceMappingURL=App.css.map */

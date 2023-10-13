@@ -7,6 +7,11 @@ export default function Joke(props) {
           : null
       }
       <p className="punchline">Punchline: <span>{props.punchline}</span></p>
+      <p>Upvotes: <span>{props.upvotes}</span></p>
+      <p>Downvotes: <span>{props.downvotes}</span></p>
+      <p>Comments: <span>{props.comments}</span></p>
+      <p>Is pun: <span>{props.isPun.toString()}</span></p>
+      <hr />
     </div>
   )
 }

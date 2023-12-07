@@ -1,5 +1,6 @@
 // import { useState } from 'react'
 import './App.scss'
+import StatePractice from './components/statePractice';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -35,6 +36,8 @@ function App() {
     <div>
       <button onClick={addThing}>Add Item</button>
       {mapOver()}
+
+      <StatePractice />
     </div>
   )
 }

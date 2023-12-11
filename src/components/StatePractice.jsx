@@ -1,28 +1,21 @@
 import { useState } from "react"
 
-export default function StatePractice() {
-  const [isImportant, setIsImportant] = useState("Yes")
+/**
+     * Challenge: Set up state to track our count (initial value is 0)
+     */
 
-  /**
-      * Challenge: 
-      * 1. Create a function called `handleClick` that runs
-      *    setIsImportant("No")
-      * 2. add a click event listener to the div.state--value
-      *    that runs `handleClick` when the div is clicked.
-      */
-  function handleClick() {
-    return setIsImportant("No");
-  }
+export default function StatePractice() {
+  const [count, setCount] = useState(0)
+
+
 
   return (
-    <>
-      <div className="state">
-        <h1 className="state--title">Is state important to know?</h1>
-        <button onClick={handleClick} className="state--value">
-          <h1>{isImportant}</h1>
-        </button>
+    <div className="counter">
+      <button className="counter--minus">–</button>
+      <div className="counter--count">
+        <h1>0</h1>
       </div>
-
-    </>
+      <button className="counter--plus">+</button>
+    </div>
   )
 }

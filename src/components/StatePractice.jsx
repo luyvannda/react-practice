@@ -12,10 +12,6 @@ export default function StatePractice() {
   
   E.g. if it's currently 1 pm, greeting("Jane") ==> "Good afternoon, Jane!"
   
-  Hint: you can get the current time of day by using: 
-  
-  const date = new Date()
-  const hours = date.getHours()
   */
 
   function greeting(name) {
@@ -25,14 +21,24 @@ export default function StatePractice() {
     const minutes = date.getMinutes();
     let timeOfDay;
 
-    return `Good ${timeOfDay}, ${name}`
+    if (hours >= 4 && hours < 12) {
+      timeOfDay = "morning";
+    } else if (hours >= 12 && hours < 17) {
+      timeOfDay = "afternoon";
+    } else if (hours >= 17 && hours < 20) {
+      timeOfDay = "evening";
+    } else {
+      timeOfDay = "night";
+    }
+
+    return console.log(`Good ${timeOfDay}, ${name}`)
 
   }
 
   return (
     <>
       <h4>StatePractice</h4>
-      <button onClick={greeting("bob")}>Greeting!!!</button>
+      <button onClick={() => greeting("Joe")}>Greeting!!!</button>
     </>
   )
 }

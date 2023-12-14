@@ -1,25 +1,30 @@
-// import { useState } from "react"
+import { useState } from "react"
+
+
+/**
+   * Challenge: 
+   * - Initialize state for `isGoingOut` as a boolean
+   * - Make it so clicking the div.state--value flips that
+   *   boolean value (true -> false, false -> true)
+   * - Display "Yes" if `isGoingOut` is `true`, "No" otherwise
+   */
 
 
 export default function StatePractice() {
-  // const [count, setCount] = useState(0)
+  const [isGoingOut, setIsGoingOut] = useState(true)
 
-  /**
-      * Challenge: move our ternary directly inside of the JSX
-      * so the "Yes" and "No" are determined inside the <h1>
-      * 
-      * Hint: you will no longer need the `answer` variable
-      */
-  const isGoingOut = true;
+  function handleClick() {
+    setIsGoingOut((going) => !going)
+  }
 
   return (
     <>
 
       <div className="state">
         <h1 className="state--title">Do I feel like going out tonight?</h1>
-        <div className="state--value">
-          <h1>{isGoingOut ? "Yes" : "No"}</h1>
-        </div>
+        <button onClick={handleClick} className="state--value">
+          {isGoingOut ? "Yes" : "No"}
+        </button>
       </div>
 
     </>

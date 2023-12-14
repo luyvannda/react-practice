@@ -1,35 +1,27 @@
-import { useState } from "react"
+// import { useState } from "react"
 
 
 export default function StatePractice() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   /**
-   * Note: if you ever need the old value of state
-   * to help you determine the new value of state,
-   * you should pass a callback function to your
-   * state setter function instead of using
-   * state directly. This callback function will
-   * receive the old value of state as its parameter,
-   * which you can then use to determine your new
-   * value of state.
-   */
+  * Challenge: Replace the if/else below with a ternary
+  * to determine the text that should display on the page
+  */
+  const isGoingOut = true
 
-  function add() {
-    setCount(prevCount => prevCount + 1)
-  }
-
-  function subtract() {
-    setCount(prevCount => prevCount - 1)
-  }
+  let answer = isGoingOut ? "Yes" : "No";
 
   return (
-    <div className="counter">
-      <button className="counter--minus" onClick={subtract}>–</button>
-      <div className="counter--count">
-        <h1>{count}</h1>
+    <>
+
+      <div className="state">
+        <h1 className="state--title">Do I feel like going out tonight?</h1>
+        <div className="state--value">
+          <h1>{answer}</h1>
+        </div>
       </div>
-      <button className="counter--plus" onClick={add}>+</button>
-    </div>
+
+    </>
   )
 }

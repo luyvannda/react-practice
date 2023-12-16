@@ -1,5 +1,15 @@
 import { useState } from "react"
 
+/**
+ * Challenge: Use a ternary to determine which star image filename
+ * should be used based on the `contact.isFavorite` property
+ * 
+ * `true` => "star-filled.png"
+ * `false` => "star-empty.png"
+ * 
+ * Then use the starIcon value to display the correct image
+ */
+
 export default function StatePractice() {
   const [contact, setContact] = useState({
     firstName: "John",
@@ -8,14 +18,17 @@ export default function StatePractice() {
     email: "itsmyrealname@example.com",
     isFavorite: false
   })
-  /**
-   * Challenge: Fill in the values in the markup
-   * using the properties of our state object above
-   * (Ignore `isFavorite` for now)
-   */
+
+  let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png";
 
   function toggleFavorite() {
-    console.log("Toggle Favorite")
+
+    setContact(prevState => {
+      return {
+        ...prevState,
+        isFavorite: !prevState.isFavorite
+      }
+    })
   }
 
   return (
@@ -24,15 +37,15 @@ export default function StatePractice() {
         <img src="./public/user.png" className="card--image" />
         <div className="card--info">
           <img
-            src="./public/star-empty.png"
+            src={`./public/${starIcon}`}
             className="card--favorite"
             onClick={toggleFavorite}
           />
           <h2 className="card--name">
-            Joe Joe
+            {`${contact.firstName} ${contact.lastName}`}
           </h2>
-          <p className="card--contact">+1 (719) 555-1212</p>
-          <p className="card--contact">itsmyrealname@example.com</p>
+          <p className="card--contact">{contact.phone}</p>
+          <p className="card--contact">{contact.email}</p>
         </div>
 
       </article>

@@ -23,21 +23,19 @@ export default function StatePractice() {
 
   function toggleFavorite() {
 
-    setContact(prevState => {
-      return {
-        ...prevState,
-        isFavorite: !prevState.isFavorite
-      }
-    })
+    setContact(prevState => ({
+      ...prevState,
+      isFavorite: !prevState.isFavorite
+    }))
   }
 
   return (
     <main>
       <article className="card">
-        <img src="./public/user.png" className="card--image" />
+        <img src="/user.png" className="card--image" />
         <div className="card--info">
           <img
-            src={`./public/${starIcon}`}
+            src={`/${starIcon}`}
             className="card--favorite"
             onClick={toggleFavorite}
           />

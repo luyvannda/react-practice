@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Count from "./Count"
 
 export default function StatePractice() {
   const [count, setCount] = useState(0)
@@ -24,9 +25,7 @@ export default function StatePractice() {
   return (
     <div className="counter">
       <button className="counter--minus" onClick={subtract}>–</button>
-      <div className="counter--count">
-        <h1>{count}</h1>
-      </div>
+      <Count number={count} />
       <button className="counter--plus" onClick={add}>+</button>
     </div>
   )

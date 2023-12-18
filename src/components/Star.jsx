@@ -1,14 +1,15 @@
 import { PropTypes } from "prop-types"
 
 export default function Star(props) {
+  let starIcon = props.isFilled ? "star-filled.png" : "star-empty.png"
 
   return (
     <>
 
       <img
-        src={props.isFilled}
+        src={starIcon}
         className="card--favorite"
-      // onClick={toggleFavorite}
+        onClick={props.handleClick}
       />
 
     </>
@@ -16,5 +17,7 @@ export default function Star(props) {
 }
 
 Star.propTypes = {
-  isFilled: PropTypes.string.isRequired
+  isFilled: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired
 }
+

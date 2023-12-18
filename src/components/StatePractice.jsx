@@ -1,33 +1,53 @@
 import { useState } from "react"
-import Count from "./Count"
+import Star from "./Star"
 
 export default function StatePractice() {
-  const [count, setCount] = useState(0)
-
-  function add() {
-    setCount(prevCount => prevCount + 1)
-  }
-
-  function subtract() {
-    setCount(prevCount => prevCount - 1)
-  }
+  const [contact, setContact] = useState({
+    firstName: "John",
+    lastName: "Doe",
+    phone: "+1 (719) 555-1212",
+    email: "itsmyrealname@example.com",
+    isFavorite: false
+  })
 
   /**
-   * Challenge:
-   * - Create a new component named Count
-   *    - It should receive a prop called `number`, whose value
-   *      is the current value of our count
-   *    - Have the component render the whole div.counter--count
-   *      and display the incoming prop `number`
-   * - Replace the div.counter--count below with an instance of
-   *   the new Count component
+   * Challenge: Move the star image into its own component (Star)
+   * - It should receive a prop called `isFilled` that it
+   *   uses to determine which icon it will display
+   * - Import and render that component, passing the value of
+   *   `isFavorite` to the new `isFilled` prop.
+   * - Don't worry about the abiliity to flip this value quite yet.
+   *   Instead, you can test if it's working by manually changing
+   *   `isFavorite` in state above.
    */
+
+  let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png"
+
+  function toggleFavorite() {
+    setContact(prevContact => ({
+      ...prevContact,
+      isFavorite: !prevContact.isFavorite
+    }))
+  }
+
   return (
-    <div className="counter">
-      <button className="counter--minus" onClick={subtract}>–</button>
-      <Count number={count} />
-      <button className="counter--plus" onClick={add}>+</button>
-    </div>
+    <main>
+      <article className="card">
+        <img src="/user.png" className="card--image" />
+        <div className="card--info">
+
+          <Star isFilled={starIcon} />
+
+          <h2 className="card--name">
+            {contact.firstName} {contact.lastName}
+          </h2>
+
+          <p className="card--contact">{contact.phone}</p>
+
+          <p className="card--contact">{contact.email}</p>
+        </div>
+
+      </article>
+    </main>
   )
 }
-

@@ -13,60 +13,50 @@
 }
 
 body {
+  background-color: whitesmoke;
   margin: 0;
-  font-family: 'Karla', sans-serif;
-  background-color: #262626;
-  color: #D9D9D9;
-  padding: 20px;
+  font-family: "Karla", sans-serif;
+}
+
+main {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.counter {
-  display: flex;
-  align-items: flex-end;
-
-  button {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    background-color: #737373;
-    color: #D9D9D9;
-    font-size: 1.5rem;
-
-    &:hover {
-      background-color: #404040;
-      color: #D9D9D9;
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-  }
+.card {
+  width: 200px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  height: 350px;
+  box-shadow: 5px 5px 5px 1px rgba(120, 120, 120, 0.44);
+  -webkit-box-shadow: 5px 5px 5px 1px rgba(120, 120, 120, 0.44);
+  -moz-box-shadow: 5px 5px 5px 1px rgba(120, 120, 120, 0.44);
 }
 
-
-.counter--count {
-  background-color: white;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #262626;
+.card--image {
+  width: 100%;
+  padding: 10%;
+  padding-bottom: 0;
 }
 
-.counter--plus {
-  margin-left: -20px;
+.card--name {
+  margin-block: 13px;
+  color: #333333;
 }
 
-.counter--minus {
-  margin-right: -20px;
-  z-index: 1;
+.card--info {
+  padding: 10px;
+}
+
+.card--favorite {
+  width: 25px;
+  cursor: pointer;
+}
+
+.card--contact {
+  font-size: 0.75rem;
+  color: gray;
+  margin-block: 7px;
 }

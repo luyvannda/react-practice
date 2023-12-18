@@ -1,25 +1,38 @@
 import './App.scss'
-import Body from './components/Body';
-import Header from './components/Header';
 import { useState } from "react"
+import Boxes from './components/Boxes'
+
 
 function App() {
 
-
   /**
-   * Challenge:
-   * Raise state up a level and pass it down to both the
-   * Header and Body components through props.
-   */
+       * Challenge part 1:
+       * 1. Initialize state with the default value of the
+       *    array pulled in from boxes.js
+       * 2. Map over that state array and display each one
+       *    as an empty square (black border, transparent bg color)
+       *    (Don't worry about using the "on" property yet)
+       */
 
+  const [squares, setSquares] = useState(Boxes)
 
-  const [user, setUser] = useState("Joe")
+  const squareElements = squares.map(squares => (
+    <div className='box' key={squares.id}>
+    </div>
+  ))
+
+  function handleClick() {
+    console.log(squares);
+  }
 
   return (
-    <div>
-      <Header userName={user} />
-      <Body userName={user} />
-    </div>
+
+    <main>
+
+      {squareElements}
+
+    </main>
+
   )
 }
 

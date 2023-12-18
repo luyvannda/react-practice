@@ -1,25 +1,27 @@
 import './App.scss'
 import { useState } from "react"
 import Boxes from './components/Boxes'
-import { PropTypes } from "prop-types"
+import Box from './components/Box'
 
 
-function App(props) {
+function App() {
 
   const [squares, setSquares] = useState(Boxes)
 
-  // Challenge: use a ternary to determine the backgroundColor.
-  // If darkMode is true, set it to "#222222"
-  // If darkMode is false, set it to "#cccccc"
-
-  const styles = {
-    backgroundColor: props.darkMode ? "#222222" : "#cccccc"
-  }
-
+  /**
+     * Challenge part 2:
+     * 1. Create a separate component called "Box" and
+     *    replace the `div` above with our <Box /> components
+     * 2. Pass the Box component a prop called `on` with the
+     *    value of the same name from the `boxes` objects
+     * 3. In the Box component, apply dynamic styles to determine
+     *    the backgroundColor of the box. If it's `on`, set the
+     *    backgroundColor to "#222222". If off, set it to "none"
+     */
 
   const squareElements = squares.map(squares => (
-    <div style={styles} className='box' key={squares.id}>
-    </div>
+    <Box key={squares.id} on={squares.on} />
+
   ))
 
   return (
@@ -31,8 +33,5 @@ function App(props) {
   )
 }
 
-App.propTypes = {
-  darkMode: PropTypes.bool.isRequired
-}
 
 export default App

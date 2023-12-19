@@ -10,7 +10,7 @@ export default function Box(props) {
   return (
     <>
       <button
-        onClick={() => props.handleClick(props.id)}
+        onClick={props.handleClick}
         style={styles}
         className='box' >
       </button>
@@ -21,5 +21,4 @@ export default function Box(props) {
 Box.propTypes = {
   on: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired
 }

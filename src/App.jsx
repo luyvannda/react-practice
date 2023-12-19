@@ -21,15 +21,9 @@ function App() {
 
   function toggle(id) {
 
-    setSquares(prevState => {
-      return prevState.map(square => {
-        if (square.id === id) {
-          return {
-            ...square,
-            on: !square.on
-          }
-        }
-        return square
+    setSquares(prevSquare => {
+      return prevSquare.map(square => {
+        return square.id === id ? { ...square, on: !square.on } : square
       })
     })
   }
@@ -37,9 +31,8 @@ function App() {
   const squareElements = squares.map(squares => (
     <Box
       key={squares.id}
-      id={squares.id}
       on={squares.on}
-      handleClick={toggle} />
+      handleClick={() => toggle(squares.id)} />
   ))
 
   return (

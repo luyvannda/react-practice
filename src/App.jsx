@@ -6,12 +6,29 @@ import Box from './components/Box'
 
 function App() {
 
+  /**
+         * Challenge: use setSquares to update the
+         * correct square in the array.
+         * 
+         * Make sure not to directly modify state!
+         * 
+         * Hint: look back at the lesson on updating arrays
+         * in state if you need a reminder on how to do this
+         */
+
   // eslint-disable-next-line no-unused-vars
   const [squares, setSquares] = useState(Boxes)
 
-  const squareElements = squares.map(squares => (
-    <Box key={squares.id} on={squares.on} />
+  function toggle(id) {
+    console.log(id)
+  }
 
+  const squareElements = squares.map(squares => (
+    <Box
+      key={squares.id}
+      id={squares.id}
+      on={squares.on}
+      handleClick={toggle} />
   ))
 
   return (

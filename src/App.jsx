@@ -20,7 +20,18 @@ function App() {
   const [squares, setSquares] = useState(Boxes)
 
   function toggle(id) {
-    console.log(id)
+
+    setSquares(prevState => {
+      return prevState.map(square => {
+        if (square.id === id) {
+          return {
+            ...square,
+            on: !square.on
+          }
+        }
+        return square
+      })
+    })
   }
 
   const squareElements = squares.map(squares => (

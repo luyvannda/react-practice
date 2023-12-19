@@ -11,5 +11,19 @@
 
 body {
   margin: 0;
-  font-family: "Karla", sans-serif;
+}
+
+.box {
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid black;
+  display: inline-block;
+  margin-right: 1rem;
+  margin-top: 2rem;
+  border-radius: 5px;
+  outline: 1px solid blue;
+  cursor: pointer;
+}
+.box:active {
+  transform: none;
 }/*# sourceMappingURL=App.css.map */

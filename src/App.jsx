@@ -1,22 +1,23 @@
 import './App.scss'
-// import { useState } from "react"
-import jokesData from './components/JokesData'
-import Joke from './components/Joke'
-
+import { useState } from "react"
 
 export default function App() {
-  const jokeElements = jokesData.map(joke => {
-    return (
-      <Joke
-        key={joke.id}
-        setup={joke.setup}
-        punchline={joke.punchline}
-      />
-    )
-  })
+  const [messages, setMessages] = useState(["a", "b"])
+  /**
+   * Challenge:
+   * - If there are no unread messages, display "You're all caught up!"
+   * - If there are > 0 unread messages, display "You have <n> unread
+   *   message(s)"
+   *      - If there's exactly 1 unread message, it should read "message"
+   *        (singular)
+   */
   return (
     <div>
-      {jokeElements}
+      {
+        messages.length === 0 ? <p>You&apos;re all caught up!</p> :
+          <p>You have {messages.length} unread
+            {messages.length === 1 ? " message." : " messages."}</p>
+      }
     </div>
   )
 }

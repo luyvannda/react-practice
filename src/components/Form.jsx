@@ -1,38 +1,38 @@
 // import { PropTypes } from "prop-types"
 import { useState } from "react"
 
-/**
-    * Challenge: Track the applicant's last name as well
-    */
 
 export default function Form() {
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
+  const [formData, setFormData] = useState({
+    "firstName": "",
+    "lastName": ""
+  })
 
-  console.log(`firstName is ${firstName}`)
-  console.log(`lastName is ${lastName}`)
+  console.log(formData)
 
-  function handleFirstNameChange(event) {
-    setFirstName(event.target.value);
+  function handleChange(event) {
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        [event.target.name]: event.target.value
+      }
+    });
   }
-
-  function handleLastNameChange(event) {
-    setLastName(event.target.value)
-  }
-
 
   return (
     <form>
       <input
         type="text"
         placeholder="First Name"
-        onChange={handleFirstNameChange}
+        name="firstName"
+        onChange={handleChange}
       />
 
       <input
         type="text"
         placeholder="Last Name"
-        onChange={handleLastNameChange}
+        name="lastName"
+        onChange={handleChange}
       />
 
     </form>

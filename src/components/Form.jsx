@@ -1,11 +1,16 @@
 // import { PropTypes } from "prop-types"
 import { useState } from "react"
 
+/**
+     * Challenge: add an email field/state to the form
+     */
+
 
 export default function Form() {
   const [formData, setFormData] = useState({
     "firstName": "",
-    "lastName": ""
+    "lastName": "",
+    "email": ""
   })
 
   console.log(formData)
@@ -26,6 +31,7 @@ export default function Form() {
         placeholder="First Name"
         name="firstName"
         onChange={handleChange}
+        value={formData.firstName}
       />
 
       <input
@@ -33,6 +39,15 @@ export default function Form() {
         placeholder="Last Name"
         name="lastName"
         onChange={handleChange}
+        value={formData.lastName}
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="example@youremail.com"
+        onChange={handleChange}
+        value={formData.email}
       />
 
     </form>

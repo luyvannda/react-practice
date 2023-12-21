@@ -1,4 +1,5 @@
 import './App.scss'
+import Form from './components/Form'
 // import { useState } from "react"
 
 export default function App() {
@@ -6,7 +7,7 @@ export default function App() {
 
   return (
     <div>
-
+      <Form />
 
     </div>
   )

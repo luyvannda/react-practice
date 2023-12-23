@@ -1,6 +1,6 @@
 // import { PropTypes } from "prop-types"
 import { useState } from "react"
-// import { useId } from "react";
+import { useId } from "react";
 
 
 export default function Form() {
@@ -21,36 +21,82 @@ export default function Form() {
    *    up for our newsletter!" to the console.
    */
 
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    okayToEmail: true
+  })
+
+  const id = useId();
+
+  function handleChange(event) {
+    const { name, value, type, checked } = event.target;
+
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        [name]: type === "checkbox" ? checked : value
+      }
+    })
+  }
+
   function handleSubmit(event) {
     event.preventDefault()
+
+    console.log(formData)
+
+    if (formData.password === formData.confirmPassword) {
+      console.log("Successfully signed up")
+    } else {
+      console.log("passwords do not match")
+      return;
+    }
+
+    if (formData.okayToEmail) {
+      console.log("Thanks for signing up for our newsletter!");
+    }
+
   }
 
   return (
     <div className="form-container">
       <form className="form" onSubmit={handleSubmit}>
+        <label htmlFor={id + "-email"}>Email</label>
         <input
           type="email"
           placeholder="Email address"
           className="form--input"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
         />
+        <label htmlFor={id + "-password"}>Password</label>
         <input
           type="password"
-          placeholder="Password"
+          name="password"
+          value={formData.password}
           className="form--input"
+          onChange={handleChange}
         />
+        <label htmlFor={id + "-confirmPassword"}>Confirm Password</label>
         <input
           type="password"
-          placeholder="Confirm password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
           className="form--input"
+          onChange={handleChange}
         />
 
         <div className="form--marketing">
           <input
-            id="okayToEmail"
+            id={id + "-okayToEmail"}
             type="checkbox"
-
+            name="okayToEmail"
+            checked={formData.okayToEmail}
+            onChange={handleChange}
           />
-          <label htmlFor="okayToEmail">I want to join the newsletter</label>
+          <label htmlFor={id + "-okayToEmail"}>I want to join the newsletter</label>
         </div>
         <button
           className="form--submit"

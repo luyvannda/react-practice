@@ -8,7 +8,7 @@ export default function App() {
 
   console.log("Component Rendered")
 
-  useEffect(function () {
+  useEffect(() => {
 
     console.log("Run Effect")
     // fetch("https://swapi.dev/api/people/1")

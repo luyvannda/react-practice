@@ -1,3 +1,6 @@
+import { PropTypes } from "prop-types"
+
+
 export default function Main(props) {
   return (
     <main className={props.darkMode ? "dark" : ""}>
@@ -11,4 +14,8 @@ export default function Main(props) {
       </ul>
     </main>
   )
+}
+
+Main.propTypes = {
+  darkMode: PropTypes.func.isRequired
 }

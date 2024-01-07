@@ -1,4 +1,5 @@
 // import { useState, useEffect } from "react"
+import { PropTypes } from "prop-types"
 
 export default function Navbar(props) {
   return (
@@ -7,7 +8,7 @@ export default function Navbar(props) {
     >
       <img
         className="nav--logo_icon"
-        src="./react-icon-small.png"
+        src="./public/react-icon-small.png"
       />
       <h3 className="nav--logo_text">ReactFacts</h3>
 
@@ -28,7 +29,7 @@ export default function Navbar(props) {
 }
 
 
-// Form.propTypes = {
-//   setup: PropTypes.string.isRequired,
-//   punchline: PropTypes.string.isRequired
-// }
+Navbar.propTypes = {
+  darkMode: PropTypes.func.isRequired,
+  toggleDarkMode: PropTypes.func.isRequired
+}

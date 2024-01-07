@@ -1,22 +1,16 @@
 import './App.scss'
-import WindowTracker from './components/WindowTracker'
-import { useState } from "react"
-
+import Main from './components/Main'
+import Navbar from './components/NavBar'
 
 export default function App() {
 
-  const [show, setShow] = useState(true);
-
-  function toggle() {
-    setShow(prevShow => !prevShow)
-  }
 
   return (
+
     <div className="container">
-      <button onClick={toggle}>
-        Toggle WindowTracker
-      </button>
-      {show && <WindowTracker />}
+      <Navbar />
+      <Main />
     </div>
+
   )
 }

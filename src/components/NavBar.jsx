@@ -30,6 +30,6 @@ export default function Navbar(props) {
 
 
 Navbar.propTypes = {
-  darkMode: PropTypes.func.isRequired,
+  darkMode: PropTypes.bool.isRequired,
   toggleDarkMode: PropTypes.func.isRequired
 }

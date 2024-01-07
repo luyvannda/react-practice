@@ -17,5 +17,5 @@ export default function Main(props) {
 }
 
 Main.propTypes = {
-  darkMode: PropTypes.func.isRequired
+  darkMode: PropTypes.bool.isRequired
 }

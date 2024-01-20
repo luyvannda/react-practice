@@ -1,35 +1,11 @@
 // import { useState, useEffect } from "react"
-import { PropTypes } from "prop-types"
+// import { PropTypes } from "prop-types"
 
-export default function Navbar(props) {
-  return (
-    <nav
-      className={props.darkMode ? "dark" : ""}
-    >
-      <img
-        className="nav--logo_icon"
-        src="./public/react-icon-small.png"
-      />
-      <h3 className="nav--logo_text">ReactFacts</h3>
-
-      <div
-        className="toggler"
-      >
-        <p className="toggler--light">Light</p>
-        <div
-          className="toggler--slider"
-          onClick={props.toggleDarkMode}
-        >
-          <div className="toggler--slider--circle"></div>
-        </div>
-        <p className="toggler--dark">Dark</p>
-      </div>
-    </nav>
-  )
+export default function Navbar() {
+  return <nav></nav>;
 }
 
-
-Navbar.propTypes = {
-  darkMode: PropTypes.bool.isRequired,
-  toggleDarkMode: PropTypes.func.isRequired
-}
+// Navbar.propTypes = {
+//   darkMode: PropTypes.bool.isRequired,
+//   toggleDarkMode: PropTypes.func.isRequired
+// }

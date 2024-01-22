@@ -1,8 +1,0 @@
-.vscode
-.husky
-.next
-/node_modules
-
-# Ignore artifacts:
-build
-coverage

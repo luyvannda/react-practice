@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:css",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:css": "postcss ./src/index.css build -o ./css/tailwind.css",
+    "watch": "postcss ./src/index.css build -o ./css/tailwind.css --watch"
   },
   "dependencies": {
     "bootstrap": "^5.3.2",

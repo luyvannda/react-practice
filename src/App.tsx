@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 
 const messages: string[] = [
   "Learn React ⚛️",
@@ -7,7 +8,21 @@ const messages: string[] = [
 ];
 
 function App() {
-  const step = 1;
+  const [step, setStep] = useState(1);
+
+  const nextStep = () => {
+    if (step < 3) {
+      return setStep((prevStep) => prevStep + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (step > 1 && step <= 3) {
+      return setStep((prevStep) => prevStep - 1);
+    }
+  };
+
+  console.log(step);
 
   return (
     <div className="steps">
@@ -22,8 +37,12 @@ function App() {
       </p>
 
       <div className="buttons">
-        <button className="bg-[#7950f2] text-white">Previous</button>
-        <button className="bg-[#7950f2] text-white">Next</button>
+        <button onClick={prevStep} className="bg-[#7950f2] text-white">
+          Previous
+        </button>
+        <button onClick={nextStep} className="bg-[#7950f2] text-white">
+          Next
+        </button>
       </div>
     </div>
   );

@@ -11,15 +11,11 @@ function App() {
   const [step, setStep] = useState(1);
 
   const nextStep = () => {
-    if (step < 3) {
-      return setStep((prevStep) => prevStep + 1);
-    }
+    if (step < 3) setStep((prevStep) => prevStep + 1);
   };
 
   const prevStep = () => {
-    if (step > 1 && step <= 3) {
-      return setStep((prevStep) => prevStep - 1);
-    }
+    if (step > 1) setStep((prevStep) => prevStep - 1);
   };
 
   console.log(step);

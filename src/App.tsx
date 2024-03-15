@@ -22,7 +22,7 @@ function App() {
   const handleClosetBtn = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
   return (
-    <div>
+    <>
       <button onClick={handleClosetBtn} className="close">
         x
       </button>
@@ -48,7 +48,7 @@ function App() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

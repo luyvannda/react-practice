@@ -10,7 +10,7 @@ export default {
         },
       },
       animation: {
-        wiggle: "wiggle 400ms ease-in-out",
+        wiggle: "wiggle 300ms ease-in-out",
       },
     },
   },

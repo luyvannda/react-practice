@@ -16,14 +16,22 @@ export default function DateCounter() {
 
   const today = new Date();
 
-  const options = {
+  const formattedDate = today.toLocaleDateString("en-US", {
     weekday: "short",
     year: "numeric",
     month: "short",
     day: "numeric",
-  };
+  });
 
-  const formattedDate = today.toLocaleDateString("en-US", options);
+  const calculateDate = new Date(today);
+  calculateDate.setDate(today.getDate() + count);
+
+  const dateAfterCalculation = calculateDate.toLocaleDateString("en-US", {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
@@ -35,7 +43,11 @@ export default function DateCounter() {
       />
       {count === 0 && <p>Today is {`${formattedDate}`}</p>}
       {count >= 1 && count <= 30 && (
-        <p>{`${count} days from today is ${formattedDate + count} `}</p>
+        <p>{`${count} days from today is ${dateAfterCalculation} `}</p>
+      )}
+
+      {count >= -30 && count < 0 && (
+        <p>{`${Math.abs(count)} days ago was ${dateAfterCalculation}`}</p>
       )}
     </div>
   );

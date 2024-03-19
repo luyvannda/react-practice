@@ -18,7 +18,7 @@ const StepComponent: FC<StepComponentProps> = ({ step, onStepChange }) => {
 
   function handlePlus() {
     setPlusWiggling(true);
-    if (step < 10) {
+    if (step < 100) {
       onStepChange(step + 1);
     }
   }
@@ -28,7 +28,7 @@ const StepComponent: FC<StepComponentProps> = ({ step, onStepChange }) => {
       <div className="flex gap-2">
         <button
           onClick={handleMinus}
-          className={`bg-gray-300 px-2 ${minusWiggling ? "animate-wiggle" : ""} `}
+          className={`bg-gray-300 px-2 hover:bg-gray-400 ${minusWiggling ? "animate-wiggle" : ""} `}
           onAnimationEnd={() => setMinusWiggling(false)}
         >
           -
@@ -37,7 +37,7 @@ const StepComponent: FC<StepComponentProps> = ({ step, onStepChange }) => {
 
         <button
           onClick={handlePlus}
-          className={`bg-gray-300 px-2 ${plusWiggling ? "animate-wiggle" : ""} `}
+          className={`bg-gray-300 px-2 hover:bg-gray-400 ${plusWiggling ? "animate-wiggle" : ""} `}
           onAnimationEnd={() => setPlusWiggling(false)}
         >
           +

@@ -14,24 +14,8 @@ export default function DateCounter() {
     setCount(newCount);
   };
 
-  const today = new Date();
-
-  const formattedDate = today.toLocaleDateString("en-US", {
-    weekday: "short",
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-
-  const calculateDate = new Date(today);
-  calculateDate.setDate(today.getDate() + count);
-
-  const dateAfterCalculation = calculateDate.toLocaleDateString("en-US", {
-    weekday: "short",
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+  const date = new Date();
+  date.setDate(date.getDate() + count);
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
@@ -41,13 +25,13 @@ export default function DateCounter() {
         count={count}
         onCountChange={handleCountChange}
       />
-      {count === 0 && <p>Today is {`${formattedDate}`}</p>}
-      {count >= 1 && count <= 30 && (
-        <p>{`${count} days from today is ${dateAfterCalculation} `}</p>
+      {count === 0 && <p>Today is {`${date.toDateString()}`}</p>}
+      {count >= 1 && count <= 365 && (
+        <p>{`${count} days from today is ${date.toDateString()} `}</p>
       )}
 
-      {count >= -30 && count < 0 && (
-        <p>{`${Math.abs(count)} days ago was ${dateAfterCalculation}`}</p>
+      {count >= -365 && count < 0 && (
+        <p>{`${Math.abs(count)} days ago was ${date.toDateString()}`}</p>
       )}
     </div>
   );

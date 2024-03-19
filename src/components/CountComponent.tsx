@@ -16,14 +16,14 @@ const CountComponent: FC<CountComponentProps> = ({
 
   function handleMinus() {
     setMinusWiggling(true);
-    const newCount = Math.max(-30, count - step); //ensure no lower than -30
+    const newCount = Math.max(-365, count - step); //ensure no lower than -365
     onCountChange(newCount);
   }
 
   function handlePlus() {
     setPlusWiggling(true);
 
-    const newCount = Math.min(30, count + step); //ensure no higher than 30
+    const newCount = Math.min(365, count + step); //ensure no higher than 365
     onCountChange(newCount);
   }
 
@@ -32,7 +32,7 @@ const CountComponent: FC<CountComponentProps> = ({
       <div className="flex gap-2">
         <button
           onClick={handleMinus}
-          className={`bg-gray-300 px-2 ${minusWiggling ? "animate-wiggle" : ""} `}
+          className={`bg-gray-300 px-2 hover:bg-gray-400 ${minusWiggling ? "animate-wiggle" : ""} `}
           onAnimationEnd={() => setMinusWiggling(false)}
         >
           -
@@ -40,7 +40,7 @@ const CountComponent: FC<CountComponentProps> = ({
         <p>Count: {count}</p>
         <button
           onClick={handlePlus}
-          className={`bg-gray-300 px-2 ${plusWiggling ? "animate-wiggle" : ""} `}
+          className={`bg-gray-300 px-2 hover:bg-gray-400 ${plusWiggling ? "animate-wiggle" : ""} `}
           onAnimationEnd={() => setPlusWiggling(false)}
         >
           +

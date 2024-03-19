@@ -1,6 +1,6 @@
 import { useState } from "react";
 import StepComponent from "./StepComponent";
-import CounterComponent from "./CounterComponent";
+import CountComponent from "./CountComponent";
 
 export default function DateCounter() {
   const [step, setStep] = useState(1);
@@ -16,11 +16,27 @@ export default function DateCounter() {
 
   const today = new Date();
 
+  const options = {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  };
+
+  const formattedDate = today.toLocaleDateString("en-US", options);
+
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col items-center justify-center gap-4">
       <StepComponent step={step} onStepChange={handleStepChange} />
-      <CounterComponent count={count} onCountChange={handleCountChange} />
-      <p>Today is {`${today}`}</p>
+      <CountComponent
+        step={step}
+        count={count}
+        onCountChange={handleCountChange}
+      />
+      {count === 0 && <p>Today is {`${formattedDate}`}</p>}
+      {count >= 1 && count <= 30 && (
+        <p>{`${count} days from today is ${formattedDate + count} `}</p>
+      )}
     </div>
   );
 }

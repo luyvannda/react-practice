@@ -1,11 +1,13 @@
 import { FC, useState } from "react";
 
-interface CounterComponentProps {
+interface CountComponentProps {
   count: number;
+  step: number;
   onCountChange: (newCount: number) => void;
 }
 
-const CounterComponent: FC<CounterComponentProps> = ({
+const CountComponent: FC<CountComponentProps> = ({
+  step,
   count,
   onCountChange,
 }) => {
@@ -14,16 +16,15 @@ const CounterComponent: FC<CounterComponentProps> = ({
 
   function handleMinus() {
     setMinusWiggling(true);
-    if (count > -30 && count <= 30) {
-      onCountChange(count - 1);
-    }
+    const newCount = Math.max(-30, count - step); //ensure no lower than -30
+    onCountChange(newCount);
   }
 
   function handlePlus() {
     setPlusWiggling(true);
-    if (count >= -30 && count < 30) {
-      onCountChange(count + 1);
-    }
+
+    const newCount = Math.min(30, count + step); //ensure no higher than 30
+    onCountChange(newCount);
   }
 
   return (
@@ -49,4 +50,4 @@ const CounterComponent: FC<CounterComponentProps> = ({
   );
 };
 
-export default CounterComponent;
+export default CountComponent;

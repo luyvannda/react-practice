@@ -1,10 +1,10 @@
 import "./App.css";
-import FlashCards from "./components/FlashCards";
+import DateCounter from "./components/DateCounter";
 
 function App() {
   return (
     <div className="flex flex-col items-center p-4">
-      <FlashCards />
+      <DateCounter />
     </div>
   );
 }

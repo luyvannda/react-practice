@@ -6,13 +6,7 @@ interface StepComponentProps {
 }
 
 const StepComponent: FC<StepComponentProps> = ({ step, onStepChange }) => {
-  type eType = {
-    target: {
-      value: string;
-    };
-  };
-
-  const handleChange = (e: eType): void => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     onStepChange(parseInt(e.target.value));
   };
 

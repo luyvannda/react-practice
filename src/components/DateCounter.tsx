@@ -26,11 +26,11 @@ export default function DateCounter() {
         onCountChange={handleCountChange}
       />
       {count === 0 && <p>Today is {`${date.toDateString()}`}</p>}
-      {count >= 1 && count <= 365 && (
+      {count >= 1 && (
         <p>{`${count} days from today is ${date.toDateString()} `}</p>
       )}
 
-      {count >= -365 && count < 0 && (
+      {count < 0 && (
         <p>{`${Math.abs(count)} days ago was ${date.toDateString()}`}</p>
       )}
     </div>

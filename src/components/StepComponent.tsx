@@ -18,7 +18,7 @@ const StepComponent: FC<StepComponentProps> = ({ step, onStepChange }) => {
           type="range"
           min={0}
           max={10}
-          defaultValue={step}
+          value={step}
         />
 
         <p>{step}</p>

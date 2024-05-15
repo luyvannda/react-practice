@@ -16,16 +16,24 @@ const CountComponent: FC<CountComponentProps> = ({
 
   function handleMinus() {
     setMinusWiggling(true);
-    const newCount = Math.max(-365, count - step); //ensure no lower than -365
-    onCountChange(newCount);
+    onCountChange(count - step);
   }
 
   function handlePlus() {
     setPlusWiggling(true);
-
-    const newCount = Math.min(365, count + step); //ensure no higher than 365
-    onCountChange(newCount);
+    onCountChange(count + step);
   }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const inputValue = e.target.value;
+    const parsedValue = parseInt(inputValue, 10);
+
+    if (isNaN(parsedValue)) {
+      onCountChange(0);
+    } else {
+      onCountChange(parsedValue);
+    }
+  };
 
   return (
     <>
@@ -37,7 +45,12 @@ const CountComponent: FC<CountComponentProps> = ({
         >
           -
         </button>
-        <p>Count: {count}</p>
+        <input
+          type="text"
+          value={count}
+          className="rounded-md border border-black text-center"
+          onChange={handleChange}
+        />
         <button
           onClick={handlePlus}
           className={`bg-gray-300 px-2 hover:bg-gray-400 ${plusWiggling ? "animate-wiggle" : ""} `}

@@ -8,7 +8,7 @@ interface AccordionProp {
 
 const Accordion: FC<AccordionProp> = ({ data }) => {
   return (
-    <div className="mx-auto my-[100px] flex w-[700px] flex-col gap-6">
+    <div className="mx-auto my-[100px] flex flex-col gap-6 lg:w-[700px]">
       {data.map((el, index) => (
         <AccordionItem num={index + 1} title={el.title} text={el.text} />
       ))}

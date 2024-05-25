@@ -24,12 +24,12 @@ const AccordionItem: FC<AccordionItemProp> = ({ num, title, text }) => {
       <p className="text-lg font-medium lg:text-2xl">{title}</p>
       <p className="text-lg font-medium lg:text-2xl">{isOpen ? "-" : "+"}</p>
 
+      {/* content-box */}
       {isOpen && (
         <div className="col-start-2 col-end-[-1] pb-4 leading-[1.6]">
           {text}
         </div>
       )}
-      {/* content-box */}
     </div>
   );
 };

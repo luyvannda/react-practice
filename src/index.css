@@ -15,12 +15,6 @@
     grid-template-columns: auto 1fr auto;
   }
 
-  .content-box {
-    grid-column: 2 / -1;
-    padding-bottom: 16px;
-    line-height: 1.6;
-  }
-
   .content-box ul {
     color: #868e96;
     margin-left: 16px;

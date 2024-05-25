@@ -1,5 +1,19 @@
-const Accordion = () => {
-  return <div>TODO</div>;
+import { FC } from "react";
+import { faqsType } from "../constants";
+import AccordionItem from "./AccordionItem";
+
+interface AccordionProp {
+  data: faqsType[];
+}
+
+const Accordion: FC<AccordionProp> = ({ data }) => {
+  return (
+    <div className="accordion">
+      {data.map((el, index) => (
+        <AccordionItem num={index + 1} title={el.title} text={el.text} />
+      ))}
+    </div>
+  );
 };
 
 export default Accordion;

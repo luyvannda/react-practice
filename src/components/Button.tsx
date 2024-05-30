@@ -8,7 +8,10 @@ interface ButtonProp {
 const Button: FC<ButtonProp> = ({ handleClick, children }) => {
   return (
     <>
-      <button onClick={handleClick} className="bg-[#7950f2] text-white">
+      <button
+        onClick={handleClick}
+        className="bg-[#7950f2] px-4 py-2 text-white"
+      >
         {children}
       </button>
     </>

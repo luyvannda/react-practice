@@ -43,7 +43,6 @@ body {
 .message {
   text-align: center;
   font-size: 20px;
-  margin: 40px 0;
   font-weight: bold;
 
   display: flex;
@@ -59,7 +58,6 @@ body {
 .buttons button {
   border: none;
   cursor: pointer;
-  padding: 10px 15px;
   border-radius: 100px;
   font-size: 14px;
   font-weight: bold;

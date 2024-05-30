@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import Button from "./components/Button";
 
 const messages: string[] = [
   "Learn React ⚛️",
@@ -39,12 +40,12 @@ function App() {
           </p>
 
           <div className="buttons">
-            <button onClick={prevStep} className="bg-[#7950f2] text-white">
-              Previous
-            </button>
-            <button onClick={nextStep} className="bg-[#7950f2] text-white">
-              Next
-            </button>
+            <Button handleClick={prevStep}>
+              <span>👈</span>Previous
+            </Button>
+            <Button handleClick={nextStep}>
+              Next<span>👉</span>
+            </Button>
           </div>
         </div>
       )}

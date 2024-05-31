@@ -1,5 +1,7 @@
 import "./App.css";
 import { useState } from "react";
+import Button from "./components/Button";
+import StepMessage from "./components/StepMessage";
 
 const messages: string[] = [
   "Learn React ⚛️",
@@ -34,17 +36,32 @@ function App() {
             <div className={`${step >= 3 ? "active" : ""}`}>3</div>
           </div>
 
-          <p className="message">
+          <StepMessage step={step}>
+            {messages[step - 1]}
+            <div className="buttons py-2">
+              <Button
+                handleClick={() =>
+                  alert(
+                    `Learn how to ${messages[step - 1].toLocaleLowerCase()}`,
+                  )
+                }
+              >
+                Learn How
+              </Button>
+            </div>
+          </StepMessage>
+
+          {/* <p className="message">
             Step {step}: {messages[step - 1]}
-          </p>
+          </p> */}
 
           <div className="buttons">
-            <button onClick={prevStep} className="bg-[#7950f2] text-white">
-              Previous
-            </button>
-            <button onClick={nextStep} className="bg-[#7950f2] text-white">
-              Next
-            </button>
+            <Button handleClick={prevStep}>
+              <span>👈</span>Previous
+            </Button>
+            <Button handleClick={nextStep}>
+              Next<span>👉</span>
+            </Button>
           </div>
         </div>
       )}

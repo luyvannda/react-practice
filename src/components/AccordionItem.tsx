@@ -1,16 +1,24 @@
-import { FC, useState } from "react";
+import { Dispatch, FC, ReactNode, SetStateAction } from "react";
 
 interface AccordionItemProp {
   num: number;
   title: string;
-  text: string;
+  curOpen: null | number;
+  onOpen: Dispatch<SetStateAction<null | number>>;
+  children: ReactNode;
 }
 
-const AccordionItem: FC<AccordionItemProp> = ({ num, title, text }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const AccordionItem: FC<AccordionItemProp> = ({
+  curOpen,
+  onOpen,
+  num,
+  title,
+  children,
+}) => {
+  const isOpen = num === curOpen;
 
   function handleToggle() {
-    setIsOpen((prevState) => !prevState);
+    onOpen(isOpen ? null : num);
   }
 
   return (
@@ -34,7 +42,7 @@ const AccordionItem: FC<AccordionItemProp> = ({ num, title, text }) => {
       {/* content-box */}
       {isOpen && (
         <div className="col-start-2 col-end-[-1] pb-4 leading-[1.6]">
-          {text}
+          {children}
         </div>
       )}
     </div>

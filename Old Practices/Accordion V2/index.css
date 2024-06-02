@@ -14,14 +14,4 @@
   .item-grid {
     grid-template-columns: auto 1fr auto;
   }
-
-  .content-box ul {
-    color: #868e96;
-    margin-left: 16px;
-    margin-top: 16px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
 }

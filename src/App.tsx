@@ -7,7 +7,7 @@ import ResetBtn from "./components/ResetBtn";
 function App() {
   return (
     <>
-      <div className="flex flex-col items-center p-4">
+      <div className="flex flex-col space-y-2 p-4">
         <Bill />
         <Input />
       </div>

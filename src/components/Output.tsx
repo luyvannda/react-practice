@@ -1,7 +1,19 @@
-const Output = () => {
+import { FC } from "react";
+
+interface OutputProps {
+  bill: number;
+}
+
+const Output: FC<OutputProps> = ({ bill }) => {
   return (
     <>
-      <p>Calculation here!!!</p>
+      {bill === 0 ? (
+        ""
+      ) : (
+        <p className="font-bold">
+          You pay ${bill} (${bill} + tips)
+        </p>
+      )}
     </>
   );
 };

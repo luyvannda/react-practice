@@ -10,13 +10,19 @@ function App() {
   const [userTips, setUserTips] = useState(0);
   const [friendTips, setFriendTips] = useState(0);
 
+  const handleReset = () => {
+    setBill(0);
+    setUserTips(0);
+    setFriendTips(0);
+  };
+
   return (
     <>
       <div className="flex flex-col space-y-2 p-4">
         <Bill setBill={setBill} />
         <Input setUserTips={setUserTips} setFriendTips={setFriendTips} />
         <Output bill={bill} userTips={userTips} friendTips={friendTips} />
-        <ResetBtn bill={bill} />
+        <ResetBtn bill={bill} onClick={handleReset} />
       </div>
     </>
   );

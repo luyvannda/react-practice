@@ -7,13 +7,14 @@ interface OutputProps {
 }
 
 const Output: FC<OutputProps> = ({ bill, userTips, friendTips }) => {
+  const totalTips = (userTips + friendTips) / 2; // make an average between two ppl
   return (
     <>
       {bill === 0 ? (
         ""
       ) : (
         <p className="font-bold">
-          You pay ${bill} (${bill} + ${(userTips + friendTips) / 2} tips)
+          You pay ${bill + totalTips} (${bill} + ${totalTips} tip)
         </p>
       )}
     </>

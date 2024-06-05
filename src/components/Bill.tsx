@@ -1,10 +1,11 @@
 import { ChangeEvent, Dispatch, FC, SetStateAction } from "react";
 
 interface BillProp {
-  setBill: Dispatch<SetStateAction<number>>;
+  setBill: Dispatch<SetStateAction<string | number>>;
+  bill: number;
 }
 
-const Bill: FC<BillProp> = ({ setBill }) => {
+const Bill: FC<BillProp> = ({ setBill, bill }) => {
   const handleBill = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = parseInt(e.target.value);
 
@@ -20,6 +21,8 @@ const Bill: FC<BillProp> = ({ setBill }) => {
       <input
         type="number"
         onChange={handleBill}
+        placeholder="Bill value"
+        value={bill}
         className="border border-black"
       />
     </div>

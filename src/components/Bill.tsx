@@ -1,16 +1,15 @@
 import { ChangeEvent, Dispatch, FC, SetStateAction } from "react";
 
 interface BillProp {
-  setBill: Dispatch<SetStateAction<string | number>>;
-  bill: number;
+  setBill: Dispatch<SetStateAction<number | string>>;
+  bill: string | number;
 }
 
 const Bill: FC<BillProp> = ({ setBill, bill }) => {
   const handleBill = (e: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = parseInt(e.target.value);
-
-    if (isNaN(inputValue)) {
-      setBill(0);
+    const inputValue = Number(e.target.value);
+    if (inputValue === 0) {
+      setBill("");
     } else {
       setBill(inputValue);
     }

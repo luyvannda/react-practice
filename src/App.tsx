@@ -6,13 +6,11 @@ import Output from "./components/Output";
 import ResetBtn from "./components/ResetBtn";
 
 function App() {
-  const [bill, setBill] = useState<string | number>("");
+  const [bill, setBill] = useState<number | string>("");
   const [userTips, setUserTips] = useState(0);
   const [friendTips, setFriendTips] = useState(0);
 
-  // const tipInput = ;
-  // const fixedFloatInput = parseFloat(tipInput.toFixed(2));
-  const tip = (Number(bill) * (userTips + friendTips / 2)) / 100;
+  const tip = Number(bill) * ((userTips + friendTips) / 2 / 100);
 
   const handleReset = () => {
     setBill("");
@@ -23,7 +21,7 @@ function App() {
   return (
     <>
       <form className="flex flex-col space-y-2 p-4">
-        <Bill setBill={setBill} />
+        <Bill setBill={setBill} bill={bill} />
         <SelectedInput onSelect={setUserTips} selectedTips={userTips}>
           How did you like the service?
         </SelectedInput>
@@ -32,8 +30,12 @@ function App() {
           How did your friend like the Service?
         </SelectedInput>
 
-        <Output bill={bill} tip={tip} />
-        <ResetBtn onClick={handleReset} />
+        {Number(bill) > 0 && (
+          <>
+            <Output bill={bill} tip={tip} />
+            <ResetBtn onClick={handleReset} />
+          </>
+        )}
       </form>
     </>
   );

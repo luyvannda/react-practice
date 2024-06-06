@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 interface OutputProps {
-  bill: number;
+  bill: number | string;
   tip: number;
 }
 
@@ -9,7 +9,7 @@ const Output: FC<OutputProps> = ({ bill, tip }) => {
   return (
     <>
       <p className="font-bold">
-        You pay ${bill + tip} (${bill} + ${tip} tip)
+        You pay ${Number(bill) + tip} (${Number(bill)} + ${tip} tip)
       </p>
     </>
   );
